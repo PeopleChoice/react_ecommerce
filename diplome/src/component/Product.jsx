@@ -1,8 +1,9 @@
 
 import React ,{useEffect,useState} from "react";
 import Skeleton from "react-loading-skeleton";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-
+import {addPanier} from '../redux/action/index'
 import { useParams } from "react-router-dom"; 
 
 
@@ -11,6 +12,12 @@ const Product = () =>{
     const [product, setProduct] = useState([]);
 
     const [loading, setLoading] = useState(false);
+
+   const  dispath = useDispatch();
+
+    const addProduitToPanier = (product) =>{
+        dispath(addPanier(product));
+    }
 
     useEffect(() => {
         setLoading(true);
@@ -43,7 +50,7 @@ const Product = () =>{
                            {product.price} $
                        </h3>
                        <p className="lead">{product.description}</p>
-                       <button className="btn btn-outline-dark px-4 py-2" >Ajouter au Panier</button>
+                       <button className="btn btn-outline-dark px-4 py-2" onClick={()=>addProduitToPanier(product)}>Ajouter au Panier</button>
                        <NavLink to="/panier" className="btn btn-outline-dark ms-2 px-3 py-2">Voir Panier</NavLink>
                        
                    </div>

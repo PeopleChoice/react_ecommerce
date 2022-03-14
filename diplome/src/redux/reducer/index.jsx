@@ -3,7 +3,7 @@ import {combineReducers} from 'redux';
 
 
 const rootReducers = combineReducers(
-     handlePanier
+   { handlePanier}
 );
 
 export default rootReducers;

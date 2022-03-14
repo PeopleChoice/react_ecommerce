@@ -1,6 +1,4 @@
-const panier = [
-   
-];
+const panier = [];
 
 
 const handlePanier = (state = panier , action) => {
@@ -19,7 +17,9 @@ const handlePanier = (state = panier , action) => {
                     }
                 ]
             }
+            
             break;
+
         case "DELETEPANIER":
             const checkExists = state.find((x)=> x.id === product.id);
 
